@@ -51,7 +51,12 @@
     "coverage": "jest --coverage",
     "test:junit": "jest --reporters=default --reporters=jest-junit",
     "test:watch": "jest --watch",
-    "generate": "openapi-generator-cli generate -i ./api.yaml -g typescript-axios -o src/openapi"
+    "generate": "openapi-generator-cli generate -i ./api.yaml -g typescript-axios -o src/openapi",
+    "docker:build-push": "npm run docker:build && npm run docker:push",
+    "docker:build": "cross-env IMAGE_NAME=your-docker-username/your-image-name:tag docker build -t $IMAGE_NAME .",
+    "docker:login": "docker login",
+    "docker:push": "cross-env IMAGE_NAME=your-docker-username/your-image-name:tag docker push $IMAGE_NAME",
+    "docker:upload": "npm run docker:build && npm run docker:login && npm run docker:push"
   },
   "author": "Enver Bisevac <enver.bisevac@harness.io>",
   "license": "Apache-2.0",
