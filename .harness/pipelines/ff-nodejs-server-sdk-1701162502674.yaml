@@ -1,0 +1,47 @@
+pipeline:
+  identifier: Build_shaurya_harness_ff_nodejs_server_sdk_1701162504763
+  name: Build ff-nodejs-server-sdk
+  orgIdentifier: default
+  projectIdentifier: shauryatest
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.Github
+        repoName: shaurya-harness/ff-nodejs-server-sdk
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: npminstall
+                  name: npm_install
+                  spec:
+                    command: npm install
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: npmtest
+                  name: npm_test
+                  spec:
+                    command: npm run test
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: npmtest1
+                  name: npm_test
+                  spec:
+                    command: npm run lint
+                  timeout: ""
+                  type: Run
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
