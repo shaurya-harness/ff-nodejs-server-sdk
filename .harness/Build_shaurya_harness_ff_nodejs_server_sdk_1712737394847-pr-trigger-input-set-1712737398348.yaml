@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_shaurya_harness_ff_nodejs_server_sdk_1712737394847-pr-trigger-input-set
+  identifier: Build_shaurya_harness_ff_nodejs_server_sdk_1712737394847prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_shaurya_harness_ff_nodejs_server_sdk_1712737394847
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
